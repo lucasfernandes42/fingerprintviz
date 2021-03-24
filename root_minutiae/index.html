@@ -27,14 +27,17 @@
 </head>
 <body>
   <main role="main" class="container">
-    <div id="observablehq-3b19ce93"></div>
-	<p>Credit: <a href="https://observablehq.com/@lucasfernandes42/minuciasvizalpha">POC - Visualização de minúcias em impressões digitais de um mesmo indivíduo by Lucas de Sousa Fernandes</a></p>
+    <div id="observablehq-buildvis-6fdff538"></div>
+    <p>Credit: <a href="https://observablehq.com/@lucasfernandes42/minuciasvizalpha">POC - Visualização de minúcias em impressões digitais de um mesmo indivíduo by Lucas de Sousa Fernandes</a></p>
 
-	<script type="module">
-	import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@4/dist/runtime.js";
-	import define from "https://api.observablehq.com/@lucasfernandes42/minuciasvizalpha.js?v=3";
-	new Runtime().module(define, Inspector.into("#observablehq-3b19ce93"));
-	</script>
+    <script type="module">
+    import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@4/dist/runtime.js";
+    import define from "https://api.observablehq.com/@lucasfernandes42/minuciasvizalpha.js?v=3";
+    new Runtime().module(define, name => {
+      if (name === "buildvis") return new Inspector(document.querySelector("#observablehq-buildvis-6fdff538"));
+      return ["map","circles","circlesLayer","matchingsLayer"].includes(name);
+    });
+    </script>
         
 </body>
 </html>
