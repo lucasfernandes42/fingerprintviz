@@ -1,34 +1,39 @@
 {  
     "captures": [{
-        "1_1": "https://raw.githubusercontent.com/lucasfernandes42/datavis/main/fingerprintviz/2004_DB1/1/1_1.tif.bmp",
-        "1_2": "https://raw.githubusercontent.com/lucasfernandes42/datavis/main/fingerprintviz/2004_DB1/1/1_2.tif.bmp",
-        "1_3": "https://raw.githubusercontent.com/lucasfernandes42/datavis/main/fingerprintviz/2004_DB1/1/1_3.tif.bmp",
-        "1_4": "https://raw.githubusercontent.com/lucasfernandes42/datavis/main/fingerprintviz/2004_DB1/1/1_4.tif.bmp",
-        "1_5": "https://raw.githubusercontent.com/lucasfernandes42/datavis/main/fingerprintviz/2004_DB1/1/1_5.tif.bmp"
+        "id": 1,
+        "1": "https://raw.githubusercontent.com/lucasfernandes42/datavis/main/fingerprintviz/2004_DB1/1/1_1.tif.bmp",
+        "2": "https://raw.githubusercontent.com/lucasfernandes42/datavis/main/fingerprintviz/2004_DB1/1/1_2.tif.bmp",
+        "3": "https://raw.githubusercontent.com/lucasfernandes42/datavis/main/fingerprintviz/2004_DB1/1/1_3.tif.bmp",
+        "4": "https://raw.githubusercontent.com/lucasfernandes42/datavis/main/fingerprintviz/2004_DB1/1/1_4.tif.bmp",
+        "5": "https://raw.githubusercontent.com/lucasfernandes42/datavis/main/fingerprintviz/2004_DB1/1/1_5.tif.bmp"
     },
 
     {
-        "2_1": "https://raw.githubusercontent.com/lucasfernandes42/datavis/main/fingerprintviz/2004_DB1/2/2_1.tif.bmp",
-        "2_2": "https://raw.githubusercontent.com/lucasfernandes42/datavis/main/fingerprintviz/2004_DB1/2/2_2.tif.bmp",
-        "2_3": "https://raw.githubusercontent.com/lucasfernandes42/datavis/main/fingerprintviz/2004_DB1/2/2_3.tif.bmp",
-        "2_4": "https://raw.githubusercontent.com/lucasfernandes42/datavis/main/fingerprintviz/2004_DB1/2/2_4.tif.bmp",
-        "2_5": "https://raw.githubusercontent.com/lucasfernandes42/datavis/main/fingerprintviz/2004_DB1/2/2_5.tif.bmp"
+        "id": 2,
+        "1": "https://raw.githubusercontent.com/lucasfernandes42/datavis/main/fingerprintviz/2004_DB1/2/2_1.tif.bmp",
+        "2": "https://raw.githubusercontent.com/lucasfernandes42/datavis/main/fingerprintviz/2004_DB1/2/2_2.tif.bmp",
+        "3": "https://raw.githubusercontent.com/lucasfernandes42/datavis/main/fingerprintviz/2004_DB1/2/2_3.tif.bmp",
+        "4": "https://raw.githubusercontent.com/lucasfernandes42/datavis/main/fingerprintviz/2004_DB1/2/2_4.tif.bmp",
+        "5": "https://raw.githubusercontent.com/lucasfernandes42/datavis/main/fingerprintviz/2004_DB1/2/2_5.tif.bmp"
     },
     {
-        "3_1": "https://raw.githubusercontent.com/lucasfernandes42/datavis/main/fingerprintviz/2004_DB1/3/3_1.tif.bmp",
-        "3_2": "https://raw.githubusercontent.com/lucasfernandes42/datavis/main/fingerprintviz/2004_DB1/3/3_2.tif.bmp",
-        "3_3": "https://raw.githubusercontent.com/lucasfernandes42/datavis/main/fingerprintviz/2004_DB1/3/3_3.tif.bmp",
-        "3_4": "https://raw.githubusercontent.com/lucasfernandes42/datavis/main/fingerprintviz/2004_DB1/3/3_4.tif.bmp",
-        "3_5": "https://raw.githubusercontent.com/lucasfernandes42/datavis/main/fingerprintviz/2004_DB1/3/3_5.tif.bmp"
+        "id": 3,
+        "1": "https://raw.githubusercontent.com/lucasfernandes42/datavis/main/fingerprintviz/2004_DB1/3/3_1.tif.bmp",
+        "2": "https://raw.githubusercontent.com/lucasfernandes42/datavis/main/fingerprintviz/2004_DB1/3/3_2.tif.bmp",
+        "3": "https://raw.githubusercontent.com/lucasfernandes42/datavis/main/fingerprintviz/2004_DB1/3/3_3.tif.bmp",
+        "4": "https://raw.githubusercontent.com/lucasfernandes42/datavis/main/fingerprintviz/2004_DB1/3/3_4.tif.bmp",
+        "5": "https://raw.githubusercontent.com/lucasfernandes42/datavis/main/fingerprintviz/2004_DB1/3/3_5.tif.bmp"
     },
     {
-        "4_1": "https://raw.githubusercontent.com/lucasfernandes42/datavis/main/fingerprintviz/2004_DB1/4/4_1.tif.bmp",
-        "4_2": "https://raw.githubusercontent.com/lucasfernandes42/datavis/main/fingerprintviz/2004_DB1/4/4_2.tif.bmp",
-        "4_3": "https://raw.githubusercontent.com/lucasfernandes42/datavis/main/fingerprintviz/2004_DB1/4/4_3.tif.bmp",
-        "4_4": "https://raw.githubusercontent.com/lucasfernandes42/datavis/main/fingerprintviz/2004_DB1/4/4_4.tif.bmp",
-        "4_5": "https://raw.githubusercontent.com/lucasfernandes42/datavis/main/fingerprintviz/2004_DB1/4/4_5.tif.bmp"
+        "id": 4,
+        "1": "https://raw.githubusercontent.com/lucasfernandes42/datavis/main/fingerprintviz/2004_DB1/4/4_1.tif.bmp",
+        "2": "https://raw.githubusercontent.com/lucasfernandes42/datavis/main/fingerprintviz/2004_DB1/4/4_2.tif.bmp",
+        "3": "https://raw.githubusercontent.com/lucasfernandes42/datavis/main/fingerprintviz/2004_DB1/4/4_3.tif.bmp",
+        "4": "https://raw.githubusercontent.com/lucasfernandes42/datavis/main/fingerprintviz/2004_DB1/4/4_4.tif.bmp",
+        "5": "https://raw.githubusercontent.com/lucasfernandes42/datavis/main/fingerprintviz/2004_DB1/4/4_5.tif.bmp"
     },
     {
+        "id": 5,
         "5_1": "https://raw.githubusercontent.com/lucasfernandes42/datavis/main/fingerprintviz/2004_DB1/5/5_1.tif.bmp",
         "4_2": "https://raw.githubusercontent.com/lucasfernandes42/datavis/main/fingerprintviz/2004_DB1/5/5_2.tif.bmp",
         "4_3": "https://raw.githubusercontent.com/lucasfernandes42/datavis/main/fingerprintviz/2004_DB1/5/5_3.tif.bmp",
