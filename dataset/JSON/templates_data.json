@@ -3,7 +3,7 @@
         "probe": 1,
         "2":{
             "template_probe": "https://raw.githubusercontent.com/lucasfernandes42/fingerprintviz/master/dataset/JSON/1/1_2/042-shuffled-minutiae.json",
-            "template_cand": "https://raw.githubusercontent.com/lucasfernandes42/fingerprintviz/master/dataset/JSON/1/1_2/2.tif.bmpcand_suffle_minutiae.cbor.json_conv.json",
+            "template_cand": "https://raw.githubusercontent.com/lucasfernandes42/fingerprintviz/master/dataset/JSON/1/1_2/1_2.tif.bmpcand_suffle_minutiae.cbor.json_conv.json",
             "roots": "https://raw.githubusercontent.com/lucasfernandes42/fingerprintviz/master/dataset/JSON/1/1_2/045-roots.json",
             "pairing": "https://raw.githubusercontent.com/lucasfernandes42/fingerprintviz/master/dataset/JSON/1/1_2/064-pairing.json"
         },
