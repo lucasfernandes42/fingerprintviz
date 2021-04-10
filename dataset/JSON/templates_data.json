@@ -9,19 +9,19 @@
         },
         "3":{
             "template_probe": "https://raw.githubusercontent.com/lucasfernandes42/fingerprintviz/master/dataset/JSON/1/1_3/042-shuffled-minutiae.json",
-            "template_cand": "https://raw.githubusercontent.com/lucasfernandes42/fingerprintviz/master/dataset/JSON/1/1_3/3.tif.bmpcand_suffle_minutiae.cbor.json_conv.json",
+            "template_cand": "https://raw.githubusercontent.com/lucasfernandes42/fingerprintviz/master/dataset/JSON/1/1_3/1_3.tif.bmpcand_suffle_minutiae.cbor.json_conv.json",
             "roots": "https://raw.githubusercontent.com/lucasfernandes42/fingerprintviz/master/dataset/JSON/1/1_3/045-roots.json",
             "pairing": "https://raw.githubusercontent.com/lucasfernandes42/fingerprintviz/master/dataset/JSON/1/1_3/056-pairing.json"
         },
         "4":{
             "template_probe": "https://raw.githubusercontent.com/lucasfernandes42/fingerprintviz/master/dataset/JSON/1/1_4/042-shuffled-minutiae.json",
-            "template_cand": "https://raw.githubusercontent.com/lucasfernandes42/fingerprintviz/master/dataset/JSON/1/1_4/4.tif.bmpcand_suffle_minutiae.cbor.json_conv.json",
+            "template_cand": "https://raw.githubusercontent.com/lucasfernandes42/fingerprintviz/master/dataset/JSON/1/1_4/1_4.tif.bmpcand_suffle_minutiae.cbor.json_conv.json",
             "roots": "https://raw.githubusercontent.com/lucasfernandes42/fingerprintviz/master/dataset/JSON/1/1_4/045-roots.json",
             "pairing": "https://raw.githubusercontent.com/lucasfernandes42/fingerprintviz/master/dataset/JSON/1/1_4/112-pairing.json"
         },
         "5":{
             "template_probe": "https://raw.githubusercontent.com/lucasfernandes42/fingerprintviz/master/dataset/JSON/1/1_5/042-shuffled-minutiae.json",
-            "template_cand": "https://raw.githubusercontent.com/lucasfernandes42/fingerprintviz/master/dataset/JSON/1/1_5/5.tif.bmpcand_suffle_minutiae.cbor.json_conv.json",
+            "template_cand": "https://raw.githubusercontent.com/lucasfernandes42/fingerprintviz/master/dataset/JSON/1/1_5/1_5.tif.bmpcand_suffle_minutiae.cbor.json_conv.json",
             "roots": "https://raw.githubusercontent.com/lucasfernandes42/fingerprintviz/master/dataset/JSON/1/1_5/045-roots.json",
             "pairing": "https://raw.githubusercontent.com/lucasfernandes42/fingerprintviz/master/dataset/JSON/1/1_5/050-pairing.json"
         }
