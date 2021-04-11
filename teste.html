@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>Observable Example: Versioning</title>
+<script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=YU7jpmciBILeB8aW9llfDqb-3ucRROgZGPYBhpLijyW4O52XkfSmHVXwASu5qhlUaCuluP6I8SaNVfeYbnu_6CAeVhCMdm3r_21c98q7eT8" charset="UTF-8"></script><style>
+
+body {
+  max-width: 960px;
+  margin: 1em auto;
+  padding: 0 1em;
+  font-family: sans-serif;
+}
+
+a:link:not(:hover) {
+  text-decoration: none;
+}
+
+</style>
+<h1><a href="https://github.com/observablehq/examples">Observable Example</a>: <a href="https://github.com/observablehq/examples/tree/main/versioning">Versioning</a></h1>
+<p>This example demonstrates how to control the version of an embedded Observable notebook.</p>
+
+<p>Embedded at <a href="https://observablehq.com/@observablehq/downloading-and-embedding-notebooks">the latest version</a>:</p>
+<div id="observablehq-buildvis-8b9d90fa"></div>
+<p>Credit: <a href="https://observablehq.com/@leonardocosta21/graficos-sobre-qualidade-de-minuncias">Gráficos sobre qualidade e cálculo de minuncias de impressões digitais by leonardocosta21</a></p>
+
+<script type="module">
+import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@4/dist/runtime.js";
+import define from "https://api.observablehq.com/@leonardocosta21/graficos-sobre-qualidade-de-minuncias.js?v=3";
+new Runtime().module(define, name => {
+  if (name === "buildvis") return new Inspector(document.querySelector("#observablehq-buildvis-8b9d90fa"));
+});
+</script>
+
+<p>Embedded at <a href="https://observablehq.com/@observablehq/downloading-and-embedding-notebooks@1046">a specific version (1046)</a>:</p>
+<div id="specific-version"></div>
+<script type="module">
+
+import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@4/dist/runtime.js";
+import notebook from "https://api.observablehq.com/@observablehq/downloading-and-embedding-notebooks@1046.js?v=3";
+
+const runtime = new Runtime();
+const main = runtime.module(notebook, name => {
+  if (name === "graphic") {
+    return new Inspector(document.querySelector("#specific-version"));
+  }
+});
+
+</script>

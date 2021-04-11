@@ -1,6 +1,6 @@
 body {
     padding-top: 50px;
-    font-family: "helvetica"
+    font-family: "monospace";
 }
 
 h4 span {
@@ -26,4 +26,9 @@ h2 span {
 #mapid {
     width: 650px;
     height: 450px;
+}
+
+#chart {
+    width: 1000px;
+    height: 1000px;
 }

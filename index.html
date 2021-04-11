@@ -21,14 +21,81 @@
     <script src="js/crossfilter.min.js"></script>
     <script src="https://d3js.org/d3.v5.min.js"></script>
     <script src="js/dc.min.js"></script>
+    <style type="text/css">
+    	body {
+		    padding-top: 50px;
+		    font-family: "arial";
+		    max-width: 2500px;	
+		}
+		h4 span {
+		    font-size:14px;
+		    font-weight:normal;
+		}		  
+		h2 {
+		    float: right;
+		  }		  
+
+		h2 span {
+		    font-size:14px;
+		    font-weight:normal;
+		}
+
+		.single-col {
+		    padding-right:15px;
+		    padding-left:15px;
+		    position: center;
+		}
+
+		#chart {
+			padding-top: 30px;
+			padding-bottom: 30px;
+			padding-right:300px;
+		    padding-left:300px;
+		}
+
+		#chart2 {
+			padding-top: 30px;
+			padding-bottom: 30px;
+			padding-right:300px;
+		    padding-left:300px;
+		}
+
+		#chart3 {
+			padding-top: 30px;
+			padding-bottom: 30px;
+			padding-right:200px;
+		    padding-left:200px;
+		}
+
+		#chart4 {
+			padding-top: 30px;
+			padding-bottom: 30px;
+			padding-right:300px;
+		    padding-left:300px;
+		}
+
+		#chart5 {
+			padding-top: 30px;
+			padding-bottom: 30px;
+			padding-right:300px;
+		    padding-left:300px;
+		}
+
+		#chart6 {
+			padding-top: 30px;
+			padding-bottom: 30px;
+			padding-right:300px;
+		    padding-left:300px;
+		}
+    </style>
 
 </head>
 <body>
   <main role="main" class="container">
     <div class="row">
-      <h3> Informações sobre a qualidade da base de imagens de impressões digitais FVC 2004</h3>
-    </div>
-    <div class='column'>
+      <h3> Informações sobre a qualidade e minuncias da base de imagens de impressões digitais FVC 2004</h3>
+    </div>    
+    <div class="col-6">
         <div id='chart'>
             <h5>Qualidade das digitais calculadas pelo NFIQ1</h5>
           </div>
@@ -40,7 +107,7 @@
             <h5> Número de digitais coletadas por cada tipo de sensor </h5>
           </div>
     </div>
-<div class='column'>
+<div class="col-6">
         <div id='chart4'>
             <h5>Relação entre a quantidade de minuncias calculadas pelo SourceAfis e as impressões digitais</h5>
           </div>
@@ -52,6 +119,7 @@
             <h5> Relação entre a quantidade de minuncias calculadas pelo Fingejet e as impressões digitais</h5>
           </div>
     </div>
+    
   </main>
   <script type="text/javascript">
 	// Create the dc.js chart objects & link to div
@@ -129,7 +197,6 @@
 	        })
 	    });
 
-	    console.log("arroz")
 	  
 	  pieChart2.width(700)
 	    .height(300)
