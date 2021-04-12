@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <meta charset="utf-8">
-<title>Observable Example: Versioning</title>
+<title>Fingerprintviz</title>
 <style>
 
 body {
@@ -17,12 +17,14 @@ a:link:not(:hover) {
 </style>
 
 
-<br>
-<h1 style="text-align:center;">Visualização de impressões digitais</h1>
-<br>
+<br><br><br>
+<h1 style="text-align:center; font-size:300%;"><b>Visualização de impressões digitais</b></h1>
+<br><br><br>
 <center>
   <div id="vis_dados"></div>
 </center>
+<div id="vis_tipos" ></div>
+<div id="vis_pares" ></div>
 <div id="vis_arvore" style="width: 0%;"></div>
 <div id="dummy" style="display: none;"></div>
 
@@ -30,17 +32,29 @@ a:link:not(:hover) {
 <script type="module">
 import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@4/dist/runtime.js";
 import notebook_arvore from "https://api.observablehq.com/@lucasfernandes42/arvore-geradora-minima-de-minucias-numa-impressao-digital.js?v=3";
-import notebook_dados from "https://api.observablehq.com/@leonardocosta21/graficos-sobre-qualidade-de-minucias.js?v=3"
+import notebook_dados from "https://api.observablehq.com/@leonardocosta21/graficos-sobre-qualidade-de-minucias.js?v=3";
+import notebook_tipos from "https://api.observablehq.com/@lucasfernandes42/visualizacao-de-minucias-numa-impressao-digital.js?v=3";
+import notebook_pares from "https://api.observablehq.com/@jpedroes/poc-visualizacao-de-minucias-em-impressoes-digitais-de-um-m/3.js?v=3";
 const runtime = new Runtime();
 
 runtime.module(notebook_dados, name => {
   if (name === "buildvis") return Inspector.into("#vis_dados")();
   else return Inspector.into("#dummy")();
 });
-
+/*
+runtime.module(notebook_tipos, name => {
+  if (name === "buildvis") return Inspector.into("#vis_tipos")();
+  else return Inspector.into("#dummy")();
+});
+*/
 runtime.module(notebook_arvore, name => {
   if (name === "buildvis") return Inspector.into("#vis_arvore")();
   else return Inspector.into("#dummy")();
 });
-
+/*
+runtime.module(notebook_pares, name => {
+  if (name === "buildvis") return Inspector.into("#vis_pares")();
+  else return Inspector.into("#dummy")();
+});
+*/
 </script>
