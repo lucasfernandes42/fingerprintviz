@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
+		integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+		crossorigin=""/>
+	<script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js"
+		integrity="sha512-nMMmRyTVoLYqjP9hrbed9S+FzjZHW5gY1TWCHA5ckwXZBadntCNs8kEqAWdrb9O7rxbCaA4lKTIWjDXZxflOcA=="
+		crossorigin=""></script>	
+		
+    <title> Gráficos sobre qualidade e cálculo de minuncias de impressões digitais</title>
+
+    <!-- Custom styles for this template -->
+	<link rel="stylesheet" href="css/dc.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="js/crossfilter.min.js"></script>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="js/dc.min.js"></script>
+    <style type="text/css">
+    	body {
+		    padding-top: 50px;
+		    font-family: "arial";
+		    max-width: 2500px;	
+		}
+		h4 span {
+		    font-size:14px;
+		    font-weight:normal;
+		}		  
+		h2 {
+		    float: right;
+		  }		  
+
+		h2 span {
+		    font-size:14px;
+		    font-weight:normal;
+		}
+
+		.single-col {
+		    padding-right:15px;
+		    padding-left:15px;
+		    position: center;
+		}
+
+		#chart {
+			padding-top: 30px;
+			padding-bottom: 30px;
+			padding-right:300px;
+		    padding-left:300px;
+		}
+
+		#chart2 {
+			padding-top: 30px;
+			padding-bottom: 30px;
+			padding-right:300px;
+		    padding-left:300px;
+		}
+
+		#chart3 {
+			padding-top: 30px;
+			padding-bottom: 30px;
+			padding-right:200px;
+		    padding-left:200px;
+		}
+
+		#chart4 {
+			padding-top: 30px;
+			padding-bottom: 30px;
+			padding-right:300px;
+		    padding-left:300px;
+		}
+
+		#chart5 {
+			padding-top: 30px;
+			padding-bottom: 30px;
+			padding-right:300px;
+		    padding-left:300px;
+		}
+
+		#chart6 {
+			padding-top: 30px;
+			padding-bottom: 30px;
+			padding-right:300px;
+		    padding-left:300px;
+		}
+    </style>
+
+</head>
+<body>
+  <main role="main" class="container">
+    <div class="row">
+      <h3> Informações sobre a qualidade e minuncias da base de imagens de impressões digitais FVC 2004</h3>
+    </div>    
+    <div class="col-6">
+        <div id='chart'>
+            <h5>Qualidade das digitais calculadas pelo NFIQ1</h5>
+          </div>
+          <div id='chart2'>
+            <h5>Qualidade das digitais calculadas pelo NFIQ2</h5>
+          </div>
+              
+          <div id='chart3'>
+            <h5> Número de digitais coletadas por cada tipo de sensor </h5>
+          </div>
+    </div>
+<div class="col-6">
+        <div id='chart4'>
+            <h5>Relação entre a quantidade de minuncias calculadas pelo SourceAfis e as impressões digitais</h5>
+          </div>
+          <div id='chart5'>
+            <h5>Relação entre a quantidade de minuncias calculadas pelo Mindtct e as impressões digitais</h5>
+          </div>
+              
+          <div id='chart6'>
+            <h5> Relação entre a quantidade de minuncias calculadas pelo Fingejet e as impressões digitais</h5>
+          </div>
+    </div>
+    
+  </main>
+  <script type="text/javascript">
+	// Create the dc.js chart objects & link to div
+	let pieChart = dc.pieChart("#chart");
+  	let pieChart2 = dc.pieChart("#chart2");
+  	let barChart = dc.barChart("#chart3");  
+  	let barChart2 = dc.barChart("#chart4");
+  	let barChart3 = dc.barChart("#chart5");
+  	let barChart4 = dc.barChart("#chart6");
+
+	// load data from a csv file
+	d3.csv("data/fingerprints_quality_fvc_2004.csv").then(function (data){
+
+
+      // Run the data through crossfilter and load our 'facts'	  
+	  let facts = crossfilter(data);
+	  var all = facts.groupAll();
+
+	  var nfiq1Dimension = facts.dimension(function(d){
+                return d.nfiq1_quality;
+        });
+
+	  var nfiq2Dimension = facts.dimension(function(d){
+                return (Math.floor(d.nfiq2_quality/20)*20);
+        });
+	  
+
+	  var sensorDimension = facts.dimension(function(d){
+                return d.sensor_type;
+        });
+	  
+	  var saDimension = facts.dimension(function(d){
+                return (Math.floor(d.minutiae_sourceafis/10)*10);
+        });
+	  
+	  var mtctDimension = facts.dimension(function(d){
+                return (Math.floor(d["minutiae_mindtct_m1=0"]/10)*10);
+        });
+	  
+	  var fingerDimension = facts.dimension(function(d){
+                return (Math.floor(d.minutiae_fingerjet/10)*10);
+        });
+	  
+	  var nfiq1Group = nfiq1Dimension.group();
+
+	  var nfiq2Group = nfiq2Dimension.group();
+
+	  var sensorGroup = sensorDimension.group();
+
+	  var saGroup = saDimension.group();
+
+	  var mtctGroup = mtctDimension.group();
+
+	  var fingerGroup = fingerDimension.group();
+
+	  let scaleTypes3 = d3.scaleLinear().domain(sensorGroup);
+
+	  let scaleTypes4 = d3.scaleLinear().domain(saGroup);
+
+	  let scaleTypes5 = d3.scaleLinear().domain(mtctGroup);
+
+	  let scaleTypes6 = d3.scaleLinear().domain(fingerGroup);
+
+	  pieChart.width(700)
+	    .height(300)
+	    .slicesCap(5)
+	    .innerRadius(100)
+	    .dimension(nfiq1Dimension)
+	    .group(nfiq1Group)
+	    .legend(dc.legend())
+	    .colorAccessor(d => d.key)
+	    .on('pretransition', function(chart) {
+	        chart.selectAll('text.pie-slice').text(function(d) {
+	            return dc.utils.printSingleValue((d.endAngle - d.startAngle) / (2*Math.PI) * 100) + '%';
+	        })
+	    });
+
+	  
+	  pieChart2.width(700)
+	    .height(300)
+	    .slicesCap(6)
+	    .innerRadius(100)
+	    .dimension(nfiq2Dimension)
+	    .group(nfiq2Group)
+	    .legend(dc.legend().legendText(function (d) {
+	          return d.name + "-" + (parseInt(d.name,10)+20).toString() 
+	    }))
+	    .colorAccessor(d => d.key)
+	    .on('pretransition', function(chart) {
+	        chart.selectAll('text.pie-slice').text(function(d) {
+	            return dc.utils.printSingleValue((d.endAngle - d.startAngle) / (2*Math.PI) * 100) + '%';
+	        })
+	    });
+  
+	  barChart.width(800)
+	            .height(400)
+	            .dimension(sensorDimension)
+	            .gap(30)
+	            .centerBar(false)
+	            .margins({top: 30, right: 50, bottom: 35, left: 40})
+	            .x(scaleTypes3)
+	            .xUnits(dc.units.ordinal)
+	            .renderHorizontalGridLines(true)
+	            .brushOn(false)
+	            .group(sensorGroup)            
+	            .colorAccessor(d => d.key);
+  
+		barChart2.width(600)
+		            .height(200)
+		            .dimension(saDimension)
+		            .centerBar(false)
+		            .margins({top: 30, right: 50, bottom: 35, left: 40})
+		            .x(scaleTypes4)
+		            .xUnits(dc.units.ordinal)
+		            .renderHorizontalGridLines(true)
+		            .brushOn(false)
+		            .yAxisLabel("Número de digitais")
+		            .xAxisLabel("Número de minuncias (10 em 10)")
+		            .group(saGroup)
+		            .colors("#0571b0")
+		            .colorAccessor(d => d.key);
+  
+		  barChart3.width(600)
+		            .height(200)
+		            .dimension(mtctDimension)
+		            .centerBar(false)
+		            .margins({top: 30, right: 50, bottom: 35, left: 40})
+		            .x(scaleTypes5)
+		            .xUnits(dc.units.ordinal)
+		            .renderHorizontalGridLines(true)
+		            .brushOn(false)
+		            .yAxisLabel("Número de digitais")
+		            .xAxisLabel("Número de minuncias (10 em 10)")
+		            .group(mtctGroup)
+		            .colors("#ca0020")
+		            .colorAccessor(d => d.key);
+  
+			  barChart4.width(600)
+			            .height(200)
+			            .dimension(fingerDimension)
+			            .centerBar(false)
+			            .margins({top: 30, right: 50, bottom: 35, left: 40})
+			            .x(scaleTypes6)
+			            .xUnits(dc.units.ordinal)
+			            .renderHorizontalGridLines(true)
+			            .brushOn(false)
+			            .yAxisLabel("Número de digitais")
+			            .xAxisLabel("Número de minuncias (10 em 10)")
+			            .group(fingerGroup)
+			            .colors("#fdae61")
+			            .colorAccessor(d => d.key);
+
+	  // Render the Charts
+	  dc.renderAll();
+
+	});
+	</script>
+	 <!-- Bootstrap javascript files -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+		
+</body>
+</html>
