@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>Fingerprintviz</title>
+<style>
+
+body {
+  max-width: 1800px;
+  margin: auto;
+  padding: 0;
+  font-family: 'Bebas Neue';
+}
+
+a:link:not(:hover) {
+  text-decoration: none;
+}
+
+</style>
+
+<div id="vis_arvore" style="width: 0%;"></div>
+<div id="dummy" style="display: none;"></div>
+
+<script type="module">
+import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@4/dist/runtime.js";
+import notebook_arvore from "https://api.observablehq.com/@lucasfernandes42/arvore-geradora-minima-de-minucias-numa-impressao-digital.js?v=3";
+
+
+(new Runtime()).module(notebook_arvore, name => {
+  if (name === "buildvis") return Inspector.into("#vis_arvore")();
+  else return Inspector.into("#dummy")();
+});
+
+</script>

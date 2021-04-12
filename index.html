@@ -10,6 +10,14 @@ body {
   font-family: 'Bebas Neue';
 }
 
+.dot {
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+
 a:link:not(:hover) {
   text-decoration: none;
 }
@@ -23,38 +31,34 @@ a:link:not(:hover) {
 <center>
   <div id="vis_dados"></div>
 </center>
-<div id="vis_tipos" ></div>
-<div id="vis_pares" ></div>
-<div id="vis_arvore" style="width: 0%;"></div>
-<div id="dummy" style="display: none;"></div>
+<br><br><br>
 
+<h3 style="text-align:center;"><b>Tipos de minúcias numa impressão digital</b></h1>
+<iframe src="pages/typesviz.html" name="targetframe" allowTransparency="true" scrolling="no" frameborder="0" width="100%" height="480"> </iframe>
+<p style="text-align:center;"><span class="dot" style="background-color: blue"> </span> Terminação</p>
+<p style="text-align:center;"><span class="dot" style="background-color: green"> </span> Bifurcação</p>
+<p style="text-align:center;">Essa visualização indica as minúcias de cada captura com seus tipos, sendo esses terminação ou bifucação, e orientação.</p>
+<br><br><br>
+<h3 style="text-align:center;"><b>Correspondência de minúcias entre a captura original e uma captura diferente</b></h1>
+<iframe src="pages/pairsviz.html" name="targetframe" allowTransparency="true" scrolling="no" frameborder="0" width="100%" height="480"> </iframe>
+<p style="text-align:center;">Essa visualização mostra os pares de minúcias que o algoritmo de verificação supõe que são a mesma minúcia.</p>
+<br><br><br>
+<h3 style="text-align:center;"><b>Ligação entre as minúcias de cada captura</b></h1>
+<iframe src="pages/treeviz.html" name="targetframe" allowTransparency="true" scrolling="no" frameborder="0" width="100%" height="480"> </iframe>
+<p style="text-align:center;">Essa visualização contém as ligações entre minúcias com maior peso que determinam a verificação em cada captura, onde é destacada a árvore geradora que é indêntica em ambas as imagens.</p>
+<br><br><br>
+
+<i>João P.B. Andrade, Leonardo F. da Costa, Lucas S. Fernandes</i>
+
+<div id="dummy" style="display: none;"></div>
 
 <script type="module">
 import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@4/dist/runtime.js";
-import notebook_arvore from "https://api.observablehq.com/@lucasfernandes42/arvore-geradora-minima-de-minucias-numa-impressao-digital.js?v=3";
 import notebook_dados from "https://api.observablehq.com/@leonardocosta21/graficos-sobre-qualidade-de-minucias.js?v=3";
-import notebook_tipos from "https://api.observablehq.com/@lucasfernandes42/visualizacao-de-minucias-numa-impressao-digital.js?v=3";
-import notebook_pares from "https://api.observablehq.com/@jpedroes/poc-visualizacao-de-minucias-em-impressoes-digitais-de-um-m/3.js?v=3";
-const runtime = new Runtime();
 
-runtime.module(notebook_dados, name => {
+(new Runtime()).module(notebook_dados, name => {
   if (name === "buildvis") return Inspector.into("#vis_dados")();
   else return Inspector.into("#dummy")();
 });
-/*
-runtime.module(notebook_tipos, name => {
-  if (name === "buildvis") return Inspector.into("#vis_tipos")();
-  else return Inspector.into("#dummy")();
-});
-*/
-runtime.module(notebook_arvore, name => {
-  if (name === "buildvis") return Inspector.into("#vis_arvore")();
-  else return Inspector.into("#dummy")();
-});
-/*
-runtime.module(notebook_pares, name => {
-  if (name === "buildvis") return Inspector.into("#vis_pares")();
-  else return Inspector.into("#dummy")();
-});
-*/
+
 </script>
